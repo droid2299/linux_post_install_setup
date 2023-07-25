@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Function to update all the packages
+update_packages() {
+    echo "Updating packages"
+    sudo apt-get update
+    sudo apt-get upgrade
+}
+
 # Function to check if a package is installed
 is_installed() {
     dpkg -l | grep -w $1
@@ -202,6 +209,7 @@ install_git() {
 
 
 # Main script
+update_packages
 install_git
 install_vscode
 install_spotify
@@ -212,3 +220,4 @@ set_wallpaper
 set_dock_to_bottom
 enable_airpods
 install_deep_learning_env
+update_packages
